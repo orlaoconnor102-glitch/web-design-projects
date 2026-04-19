@@ -1,0 +1,26 @@
+body {
+	background-color: #000;
+	color: #FFF;
+}
+h1 {
+	text-align: center;
+}
+#mainNav {
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	display: block;
+	float: none;
+}
+img {
+	float: right;
+	margin: 5px;
+}
+p {
+	width: 450px;
+	margin-right: auto;
+	margin-left: auto;
+}
+a {
+	color: #B2B529;
+}
