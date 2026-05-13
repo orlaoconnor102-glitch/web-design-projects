@@ -12,25 +12,20 @@ document.querySelectorAll(".planet-wrapper").forEach(wrapper => {
     const planetKey = wrapper.dataset.planet;
     const animClass = "animate-" + planetKey;
 
-    // Reset planet animation so it always plays
     planet.classList.remove(animClass);
     void planet.offsetWidth;
 
-    // Reset chalk animation
     label.classList.remove("draw-chalk");
     void label.offsetWidth;
 
-    // Start planet animation
     planet.classList.add(animClass);
 
     const onEnd = () => {
       planet.removeEventListener("animationend", onEnd);
 
-      // Show label + chalk animation
       label.classList.add("show-label");
       label.classList.add("draw-chalk");
 
-      // Start sparkles
       sparkleInterval = setInterval(() => {
         createSparkle(wrapper);
       }, 300);
@@ -45,30 +40,21 @@ document.querySelectorAll(".planet-wrapper").forEach(wrapper => {
     const planetKey = wrapper.dataset.planet;
     const animClass = "animate-" + planetKey;
 
-    // Stop planet animation
     planet.classList.remove(animClass);
 
-    // Hide label + reset chalk
     label.classList.remove("show-label");
     label.classList.remove("draw-chalk");
 
-    // Stop sparkles
     if (sparkleInterval) {
       clearInterval(sparkleInterval);
       sparkleInterval = null;
     }
 
-    // Remove existing sparkles
     wrapper.querySelectorAll(".sparkle").forEach(s => s.remove());
 
     animating = false;
   });
 });
-
-
-// =========================
-// SPARKLE GENERATION
-// =========================
 
 function createSparkle(wrapper) {
   const sparkle = document.createElement("div");
@@ -93,11 +79,6 @@ function createSparkle(wrapper) {
     burstSparkle(sparkle);
   }, 800);
 }
-
-
-// =========================
-// SPARKLE BURST EFFECT
-// =========================
 
 function burstSparkle(sparkle) {
   const wrapper = sparkle.parentElement;
@@ -124,17 +105,5 @@ function burstSparkle(sparkle) {
   sparkle.remove();
 }
 
-<script>
-document.querySelector(".home-astronaut").addEventListener("click", function(e) {
-    e.preventDefault();
-
-    const img = this.querySelector("img");
-    img.classList.add("fly-away");
-
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 2600);
-});
-</script>
 
 
