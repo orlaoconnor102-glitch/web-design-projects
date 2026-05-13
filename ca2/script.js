@@ -1,3 +1,7 @@
+// =========================
+// PLANET HOVER ANIMATIONS
+// =========================
+
 document.querySelectorAll(".planet-wrapper").forEach(wrapper => {
   const planet = wrapper.querySelector(".planet");
   const label = wrapper.querySelector(".planet-label");
@@ -90,51 +94,6 @@ function createSparkle(wrapper) {
   });
 
   setTimeout(() => {
-    burstSparkle(sparkle);
-  }, 800);
-}
-
-
-// =========================
-// SPARKLE BURST EFFECT
-// =========================
-
-function burstSparkle(sparkle) {
-  const wrapper = sparkle.parentElement;
-
-  for (let i = 0; i < 4; i++) {
-    const fragment = document.createElement("div");
-    fragment.classList.add("sparkle");
-    fragment.style.width = "6px";
-    fragment.style.height = "6px";
-    fragment.style.left = sparkle.style.left;
-    fragment.style.top = sparkle.style.top;
-    wrapper.appendChild(fragment);
-
-    requestAnimationFrame(() => {
-      fragment.style.transition = "all 0.4s ease-out";
-      fragment.style.opacity = 0;
-      fragment.style.transform =
-        `translate(${(Math.random() - 0.5) * 40}px, ${(Math.random() - 0.5) * 40}px) scale(0.3)`;
-    });
-
-    setTimeout(() => fragment.remove(), 450);
-  }
-
-  sparkle.remove();
-}
-
-<script>
-document.querySelector(".home-astronaut").addEventListener("click", function(e) {
-    e.preventDefault();
-
-    const img = this.querySelector("img");
-    img.classList.add("fly-away");
-
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 2600);
-});
-</script>
+    burstSparkle
 
 
